@@ -1,1 +1,2 @@
-paster --plugin=ckan serve "$VIRTUAL_ENV"/etc/ckan/production.ini
+#!/bin/bash
+exec paster --plugin=ckan serve "$VIRTUAL_ENV"/etc/ckan/production.ini "$@"
