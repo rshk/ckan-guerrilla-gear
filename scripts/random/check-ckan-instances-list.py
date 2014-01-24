@@ -56,3 +56,18 @@ for instance in instances_json:
     results[instance['id']] = result
 
 print(json.dumps(results))
+
+##------------------------------------------------------------
+## To inspect the output
+
+## Failing main page
+## cat check-results.json | jq '.[] | select(.main_url.success == false)'
+
+## Failing v2 API
+## cat check-results.json | jq '.[] | select(.api_v2.success == false)'
+
+## Failing v3 API
+## cat check-results.json | jq '.[] | select(.api_v3.success == false)'
+
+## No API at all (no Ckan?)
+## cat check-results.json | jq '.[] | select(.api_v2.success == false and .api_v3.success == false)'
